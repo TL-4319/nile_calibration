@@ -15,10 +15,9 @@ ign gazebo -r <scene.world>
 ```
 
 ## Start ros gz bridge
-To transport data from gazebo to ros2 sim
+To transport data from gazebo to ros2 sim, run the following in a sourced terminal
 ```
 ros2 run ros_ign_bridge parameter_bridge /lidar/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked
 ```
 
-Still need to figure out how to publish the lidar frame so that it can be visualized in RVIZ
   
