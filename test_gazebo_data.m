@@ -3,7 +3,7 @@ clear
 clc
 
 % Object to read bag file
-bag_reader = ros2bagreader('/home/tuan/rosbag2_2024_10_04-11_12_56/');
+bag_reader = ros2bagreader('/home/tuan/rosbag2_2024_10_04-12_04_47/');
 
 % Get data based on topics
 left_thermal_bag = select(bag_reader,'Topic','/thermal_camera_8bit_left/image');

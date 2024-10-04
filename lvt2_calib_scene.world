@@ -117,7 +117,7 @@
         <topic>thermal_camera_8bit_right/image</topic>
         <topic_picker>false</topic_picker>
       </plugin>
-    -->
+    
       <plugin filename="ImageDisplay" name="Image Display Optical Left">
         <ignition-gui>
           <title>Optical camera Left</title>
@@ -142,7 +142,7 @@
         <topic>camera_right/image</topic>
         <topic_picker>false</topic_picker>
       </plugin>
-    
+    -->
     </gui>
 
     <light type="directional" name="sun">
@@ -156,7 +156,7 @@
         <linear>0.01</linear>
         <quadratic>0.001</quadratic>
       </attenuation>
-      <direction>0.5 0.1 -0.9</direction>
+      <direction>-1.0 0.0 -0.9</direction>
     </light>
 
     <atmosphere type="adiabatic">
@@ -381,7 +381,8 @@
       <static>true</static>
     </model>
 
-    <!-- Blickfeld cube-->
+    
+    <!-- Blickfeld cube -->
     <model name="Blickfeld">
       <pose>0 0 1.0 0 0.0 0.0</pose>
       <link name="Blickfeld_link">
@@ -424,7 +425,6 @@
               <resolution>0.01</resolution>
             </range>
             <noise>
-              <!-- Use gaussian noise -->
               <type>gaussian</type>
               <mean>0.0</mean>
               <stddev>0.02</stddev>
@@ -436,6 +436,28 @@
       </link>
       <static>true</static>
     </model>
+  
+    <!--Background wall-->
+    <model name="background wall">
+      <pose>6 0 2 0 0 0</pose>
+      <static>true</static>
+      <link name="wall">
+        <visual name="visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 10 5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+            <emissive>0.5 0.5 0.5 1</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
 
     <!-- Calibration target-->
     <model name="lvt2_target">
@@ -443,18 +465,18 @@
       <static>true</static>
       <link name="calib_target">
         <visual name="visual">
-			<pose>0 0 0 0 0 0</pose> 
-			  <geometry>
-				<mesh><uri>model://calib_target/lvt2_target/lvt2_target.obj</uri></mesh>
-			  </geometry>
-        <plugin
-        filename="ignition-gazebo-thermal-system"
-        name="gz::sim::systems::Thermal">
-        <temperature>323.0</temperature>
-      </plugin>
-		</visual>
+			    <pose>0 0 0 0 0 0</pose> 
+            <geometry>
+            <mesh><uri>model://calib_target/lvt2_target/lvt2_target.obj</uri></mesh>
+            </geometry>
+            <plugin
+            filename="ignition-gazebo-thermal-system"
+            name="gz::sim::systems::Thermal">
+            <temperature>323.0</temperature>
+          </plugin>
+        </visual>
 		  <collision name="collision">
-			<pose>0 0 0  0 0 0</pose>
+			  <pose>0 0 0  0 0 0</pose>
 			  <geometry>
 				<mesh><uri>model://calib_target/lvt2_target/lvt2_target.obj</uri></mesh>
 			  </geometry>
