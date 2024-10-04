@@ -117,13 +117,13 @@
         <topic>thermal_camera_8bit_right/image</topic>
         <topic_picker>false</topic_picker>
       </plugin>
-
+    -->
       <plugin filename="ImageDisplay" name="Image Display Optical Left">
         <ignition-gui>
           <title>Optical camera Left</title>
           <property key="state" type="string">floating</property>
-          <property type="double" key="width">1600</property>
-          <property type="double" key="height">1300</property>
+          <property type="double" key="width">640</property>
+          <property type="double" key="height">512</property>
           <property type="double" key="y">300</property>
         </ignition-gui>
         <topic>camera_left/image</topic>
@@ -134,15 +134,15 @@
         <ignition-gui>
           <title>Optical camera right</title>
           <property key="state" type="string">floating</property>
-          <property type="double" key="width">1600</property>
-          <property type="double" key="height">1300</property>
+          <property type="double" key="width">640</property>
+          <property type="double" key="height">512</property>
           <property type="double" key="y">300</property>
           <property type="double" key="x">500</property>
         </ignition-gui>
         <topic>camera_right/image</topic>
         <topic_picker>false</topic_picker>
       </plugin>
-    -->
+    
     </gui>
 
     <light type="directional" name="sun">
@@ -325,6 +325,7 @@
             <image>
               <width>1600</width>
               <height>1300</height>
+              <format>L8</format>
             </image>
             <clip>
               <near>0.1</near>
@@ -364,6 +365,7 @@
             <image>
               <width>1600</width>
               <height>1300</height>
+              <format>L8</format>
             </image>
             <clip>
               <near>0.1</near>
